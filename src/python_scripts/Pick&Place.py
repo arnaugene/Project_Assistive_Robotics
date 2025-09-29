@@ -1,11 +1,18 @@
+import os 
 import time
 from math import radians, degrees, pi
 from robodk.robodialogs import *
 from robodk.robolink import Robolink
 from robodk.robomath import *
 
+# Define relative path to the .rdk file
+relative_path = "src/roboDK/Pick&Place_UR5e_students.rdk"
+absolute_path = os.path.abspath(relative_path)
+
 # Robot setup
 RDK = Robolink()
+RDK.AddFile(absolute_path)
+
 robot = RDK.Item("UR5e")
 base = RDK.Item("Use Base")
 tool = RDK.Item("2FG7")
