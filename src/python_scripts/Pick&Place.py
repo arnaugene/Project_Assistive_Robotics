@@ -6,7 +6,7 @@ from robodk.robolink import Robolink
 from robodk.robomath import *
 
 # Define relative path to the .rdk file
-relative_path = "src/roboDK/Pick&Place_UR5e_students.rdk"
+relative_path = "src/roboDK/Pick&Place_UR5e.rdk"
 absolute_path = os.path.abspath(relative_path)
 
 # Robot setup
