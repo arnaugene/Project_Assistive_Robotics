@@ -40,14 +40,30 @@ def Init():
 
 def Pick():
     print("Pick")
+    robot.MoveL(App_pick_target, True)
+    print("App_pick_target REACHED")
+    robot.setSpeed(10)  # Reduce speed for approach
+    robot.MoveL(Pick_target, True)
+    print("Pick_target REACHED")
 
-    # ---
     cube.setParentStatic(tool)  # Maintain the actual absolute POSE
     robot.MoveL(App_pick_target, True)
     print("Pick FINISHED")
+    robot.setSpeed(20)  # Restore speed
 
 def Place():
-    # ---
+    print("Place")
+    robot.MoveL(App_place_target, True)
+    print("App_place_target REACHED")
+    robot.setSpeed(10)  # Reduce speed for approach
+    robot.MoveL(Place_target, True)
+    print("Place_target REACHED")
+
+    cube.setParentStatic(table)  # Maintain the actual absolute POSE
+    robot.MoveL(App_place_target, True)
+    print("Place FINISHED")
+    robot.setSpeed(20)  # Restore speed
+    
     pass
 
 
@@ -56,6 +72,7 @@ def main():
     Init()
     Pick()
     Place()
+    Init()
 
 if __name__ == "__main__":
     main()
